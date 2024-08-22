@@ -1,0 +1,10 @@
+include "xxxRecord.dbd"
+device(xxx,CONSTANT,devXxxSoft,"SoftChannel")
+
+# Add the following lines
+include "base.dbd"
+include "stream.dbd"
+include "asyn.dbd"
+registrar(drvAsynIPPortRegisterCommands)
+registrar(drvAsynSerialPortRegisterCommands)
+registrar(vxi11RegisterCommands)
