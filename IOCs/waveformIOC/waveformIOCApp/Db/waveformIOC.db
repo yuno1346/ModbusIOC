@@ -9,7 +9,7 @@
 record(ai, "$(SYS)$(DEV)Frequency-RB") {
     field(DTYP, "stream")
     field(INP,  "@waveformIOC.proto getFrequency() $(PORT)")
-    field(SCAN, "I/O Intr")
+    field(SCAN, "1 second")
 }
 
 record(ao, "$(SYS)$(DEV)Frequency-SP") {
