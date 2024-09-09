@@ -2,58 +2,62 @@
 #
 # StreamDevice protocol file for Keysight 33500B Waveform Generator
 #
-# Author : Kim Yunho
-# Date   : 2024-08-22
-# Version: 1.0
+# Author : Kim Yunho(kim.yh@postech.ac.kr)
+# Date   : 2024-09-05
+# Version: 0.2
 
+@writetimeout { disconnect; }
+@replytimeout { disconnect; }
+@readtimeout  { disconnect; }
+@mismatch     { disconnect; }
+
+ReplyTimeout = 3000;
+InTerminator = LF;
+OutTerminator = LF;
 Terminator = LF;
 
-# Define protocol for setting frequency
-setFrequency {
-    out "FREQ %f";
+# Ragular expression
+cmd
+{
+    out "\$1";
 }
 
-# Define protocol for reading frequency
-getFrequency {
-    out "FREQ?";
-    in "%f";
+setD 
+{
+    out "\$1 %d";
+    @init
+    {
+        out "\$1?";
+        in "%d";
+    }
 }
 
-# Define protocol for setting amplitude
-setAmplitude {
-    out "VOLT %f";
-}
-
-# Define protocol for reading amplitude
-getAmplitude {
-    out "VOLT?";
-    in "%f";
-}
-
-# Define protocol for setting output on/off
-setOnOff {
-    out "OUTP %d";
-}
-
-# Define protocol for reading output on/off
-getOnOff {
-    out "OUTP?";
+getD
+{
+    out "\$1?";
     in "%d";
+    ExtraInput = Ignore;
 }
 
-# Define protocol for resetting the device
-resetDevice {
-    out "*RST";
+setF
+{
+    out "\$1 %f";
+    @init
+    { 
+        out "\$1?";
+        in "%f";
+    }
 }
 
-# Define protocol for getting the system Date
-getSystemDate {
-    out "SYST:DATE?";
-    in "%s";
+getF
+{
+    out "\$1?";
+    in "%f";
+    ExtraInput = Ignore;
 }
 
-# Define protocol for getting the device identity
-getIdentity {
+getIDN {
     out "*IDN?";
-    in "%s";
+    in "%\$1[^\r\n]";
+    ExtraInput = Ignore;
 }
