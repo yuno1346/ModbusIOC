@@ -17,6 +17,9 @@ modbusIOC_DBD += base.dbd
 
 # Include dbd files from all support applications:
 #modbusIOC_DBD += xxx.dbd
+modbusIOC_DBD += calc.dbd
+modbusIOC_DBD += asyn.dbd
+modbusIOC_DBD += modbus.dbd
 
 # Add all the support libraries needed by this IOC
 #modbusIOC_LIBS += xxx
