@@ -43,5 +43,4 @@ EPICS_BASE = /home/kyh/EPICS/epics-base
 
 CALC=/home/kyh/EPICS/support/calc
 ASYN=/home/kyh/EPICS/support/asyn
-STREAM=/home/kyh/EPICS/support/StreamDevice
 MODBUS=/home/kyh/EPICS/support/modbus
