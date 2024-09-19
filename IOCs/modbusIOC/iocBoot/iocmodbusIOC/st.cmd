@@ -11,10 +11,20 @@ cd "${TOP}"
 dbLoadDatabase "dbd/modbusIOC.dbd"
 modbusIOC_registerRecordDeviceDriver pdbbase
 
+#drvModbusAsynConfigure(portName,
+#                       tcpPortName,
+#                       slaveAddress,
+#                       modbusFunction,
+#                       modbusStartAddress,
+#                       modbusLength,
+#                       dataType,
+#                       pollMsec,
+#                       plcType);
+
 ## Load record instances
-dbLoadTemplate "db/user.substitutions"
-dbLoadRecords "db/modbusIOCVersion.db", "user=kyh"
-dbLoadRecords "db/dbSubExample.db", "user=kyh"
+#dbLoadTemplate "db/user.substitutions"
+#dbLoadRecords "db/modbusIOCVersion.db", "user=kyh"
+dbLoadRecords "db/modbusIOC.db", "user=kyh"
 
 #- Set this to see messages from mySub
 #-var mySubDebug 1

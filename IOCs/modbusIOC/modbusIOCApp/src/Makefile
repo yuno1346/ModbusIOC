@@ -19,10 +19,11 @@ modbusIOC_DBD += base.dbd
 #modbusIOC_DBD += xxx.dbd
 modbusIOC_DBD += calc.dbd
 modbusIOC_DBD += asyn.dbd
-modbusIOC_DBD += modbus.dbd
+modbusIOC_DBD += modbusSupport.dbd
 
 # Add all the support libraries needed by this IOC
 #modbusIOC_LIBS += xxx
+modbusIOC_LIBS += calc modbus asyn
 
 # modbusIOC_registerRecordDeviceDriver.cpp derives from modbusIOC.dbd
 modbusIOC_SRCS += modbusIOC_registerRecordDeviceDriver.cpp
